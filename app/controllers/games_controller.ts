@@ -19,6 +19,10 @@ export default class GamesController {
     }
   }
 
+  /*
+   *  View game details individually
+   */
+
   async steamGameListWithDetails({ response }: HttpContext) {
     try {
       const games = await this.steamApiService.getGameListWithType()
@@ -45,6 +49,10 @@ export default class GamesController {
       return response.status(500).send({ message: 'Internal Server Error', error: error.message })
     }
   }
+
+  /*
+   *  Save all game details to database
+   */
 
   async saveAndUpdateAllGameDetails({ response }: HttpContext) {
     try {
